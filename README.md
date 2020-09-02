@@ -1,11 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Installation Requirements
+* ruby v 2.7.1 +
+* rails 6.0.3 +
+* yarn
 
-Things you may want to cover:
-
-* Ruby version
 
 * System dependencies
 
