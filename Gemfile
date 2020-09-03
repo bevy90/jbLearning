@@ -61,6 +61,7 @@ end
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'faker'
 gem 'font-awesome-sass', '~> 5.13.0'
+gem 'devise'
 gem 'haml-rails', '~> 2.0'
 gem 'jquery-rails'
 gem 'simple_form'
