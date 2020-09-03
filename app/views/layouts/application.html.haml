@@ -15,11 +15,14 @@
       #navbarSupportedContent.collapse.navbar-collapse
         %ul.navbar-nav.mr-auto
           %li.nav-item.active
-            %a.nav-link{:href => "#"}
-              Home
+            = link_to root_path, class: 'nav-link' do
+              .fas.fa-home
+              Homepage
               %span.sr-only (current)
           %li.nav-item
-            %a.nav-link{:href => "#"} Link
+            = link_to courses_path, class: 'nav-link' do
+              .fas.fa-book
+              Courses
           %li.nav-item.dropdown
             %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               Dropdown
