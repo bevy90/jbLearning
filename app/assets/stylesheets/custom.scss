@@ -1,4 +1,13 @@
+@import "./actiontext.scss";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "./actiontext.scss";
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+  }
+}
