@@ -1,3 +1,58 @@
-%h1 Pages#index
-%p Find me in app/views/pages/index.html.erb
+.jumbotron
+  %h1.display-4
+    What do you want to learn today?
+  .form-inline.my-4.my-lg-0
+    = form_tag(courses_path, method: :get) do
+      .input-group
+        = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control'
+        %span.input-group-append
+          %button.btn.btn-primary.btn-sm{:type => "submit"}
+            %span.fa.fa-search{"aria-hidden" => "true"}
 
+.card-group.mt-4
+  .card.card-body
+    %h1
+      .fa.fa-graduation-cap
+    = Course.count
+    online courses
+    %br
+    Explore a variety of fresh topics
+  .card.card-body
+    %h1
+      .fa.fa-chalkboard-teacher
+    = Course.distinct.count(:user_id)
+    expert instructors
+    %br
+    Find the right instructor for you
+  .card.card-body
+    %h1
+      .fa.fa-user-graduate
+    = User.count
+    active learners
+    %br
+    Join the knowledge sharing community
+  .card.card-body
+    %h1
+      .fa.fa-infinity
+    Lifetime access
+    %br
+    Learn on your schedule
+
+%hr
+%h2
+  Popular Courses
+.card-columns
+  - @courses.each do |course|
+    = render 'courses/course', course: course
+%hr
+%h2
+  Top Rated Courses
+.card-columns
+  - @courses.each do |course|
+    = render 'courses/course', course: course
+%hr
+%h2
+  Most Recent Courses
+.card-columns
+  - @recent_courses.each do |course|
+    = render 'courses/course', course: course

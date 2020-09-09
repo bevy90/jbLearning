@@ -1,7 +1,7 @@
-.card
+.card.my-2
   .card-header
     .fa.fa-book
-    = course.title
+    = link_to course.title, course_path(course)
   .card-body
     = course.description
   .card-footer
