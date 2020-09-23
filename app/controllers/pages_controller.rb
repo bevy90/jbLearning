@@ -4,4 +4,8 @@ class PagesController < ApplicationController
     @courses = Course.all.limit(3)
     @recent_courses = Course.all.order(created_at: :desc).limit(3)
   end
+
+  def activity
+    @activities = PublicActivity::Activity.all
+  end
 end
