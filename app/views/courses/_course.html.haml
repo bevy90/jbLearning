@@ -7,6 +7,9 @@
   .card-footer
     .text-center
       = number_to_currency(course.price)
+  .card-header
+    .fa.fa-book
+    = course.lessons.count
   .card-footer
     .row
       .col-md-6
