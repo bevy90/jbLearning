@@ -8,6 +8,9 @@ class User < ApplicationRecord
   rolify
   after_create :assign_default_role
 
+  extend FriendlyId
+  friendly_id :email, use: :slugged
+
   has_many :courses
 
   validate :must_have_a_role, on: :update
