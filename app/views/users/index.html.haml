@@ -4,10 +4,6 @@
     .badge.badge-primary
       = @users.count
 
-.card-columns
-  - @users.each do |user|
-    = render 'users/user', user: user
-
 .form-inline
   = search_form_for @q do |f|
     = f.search_field :email_cont, placeholder: 'email'
@@ -29,6 +25,8 @@
       %th= 'last_sign_in_at'.humanize
       %th= 'current_sign_in_ip'.humanize
       %th= 'last_sign_in_ip'.humanize
+      %th Confirmed?
+      %th Roles
   %tbody
     - @users.each do |user|
       %tr
@@ -40,3 +38,17 @@
         %td= user.last_sign_in_at
         %td= user.current_sign_in_ip
         %td= user.last_sign_in_ip
+        - if user.confirmed_at.present?
+          %td
+            %span.badge.badge-success
+            Yes
+        - else
+          %td
+            %span.badge.badge-danger
+            No
+        %td
+          - user.roles.each do |role|
+            = role.name
+          - if policy(user).edit?
+            %br
+            = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
